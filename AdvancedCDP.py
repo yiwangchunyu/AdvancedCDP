@@ -212,6 +212,7 @@ def clustring_DiegoGeneric(n_centre_id:List[Point], pts:List[Point], display:boo
         inqueue.add(centre_id)
 
     while pq:
+        heapq.heapify(pq)
         top = heapq.heappop(pq)
         inqueue.remove(top.id)
         solved.add(top.id)
@@ -251,7 +252,7 @@ def clustring_DiegoGeneric(n_centre_id:List[Point], pts:List[Point], display:boo
         plt.scatter(x, y, s=DISPLAY_SCATTER_SIZE, c=labels, marker='o')
         plt.scatter(cx, cy, s=DISPLAY_SCATTER_SIZE*3, c=clabels, marker='o')
         plt.axis('scaled')
-        plt.savefig('clustring_ours_result.png', dpi=500)
+        plt.savefig('clustring_DiegoGeneric_result.png', dpi=500)
         plt.show()
 
 def clustring_ours(n_centre_id:List[Point], pts:List[Point], display:bool=True,arrow:bool=False):
@@ -269,6 +270,7 @@ def clustring_ours(n_centre_id:List[Point], pts:List[Point], display:bool=True,a
         inqueue.add(centre_id)
 
     while pq:
+        heapq.heapify(pq)
         top = heapq.heappop(pq)
         inqueue.remove(top.id)
         solved.add(top.id)
@@ -308,7 +310,7 @@ def clustring_ours(n_centre_id:List[Point], pts:List[Point], display:bool=True,a
         plt.scatter(x, y, s=DISPLAY_SCATTER_SIZE, c=labels, marker='o')
         plt.scatter(cx, cy, s=DISPLAY_SCATTER_SIZE*3, c=clabels, marker='o')
         plt.axis('scaled')
-        plt.savefig('clustring_DiegoGeneric_result.png', dpi=500)
+        plt.savefig('clustring_ours_result.png', dpi=500)
         plt.show()
 
 
