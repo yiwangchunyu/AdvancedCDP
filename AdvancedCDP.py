@@ -333,3 +333,16 @@ if __name__=="__main__":
     end = time.time()
     clustring_ours_duration = end - begin
     print(clustring_ours_duration)
+    # Jaccard Coef
+    a = 0
+    b = 0
+    c = 0
+    d = 0
+    for i in range(len(pts)):
+        for j in range(i):
+            a += (1 if pts[i].label_real == pts[j].label_real and pts[i].label == pts[j].label else 0)
+            b += (1 if pts[i].label_real == pts[j].label_real and pts[i].label != pts[j].label else 0)
+            c += (1 if pts[i].label_real != pts[j].label_real and pts[i].label == pts[j].label else 0)
+            # d += (1 if pts[i].label_real != pts[j].label_real and pts[i].label != pts[j].label else 0)
+    jc = a / (a + b + c)
+    print('Jaccard Coef:', jc)
